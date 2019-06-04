@@ -1,4 +1,4 @@
-var topics = ["Dingo", "Panther","Bison",]
+var topics = ["Dingo", "Panther","Bison","Cape Buffalo","Moose","Oryx","Bobcat","Gorilla","Musk Deer","Tahr","Koala","Mouflon","Sea Otter"]
 
 function renderButton(){
     $("#button-view").empty();
@@ -21,9 +21,51 @@ $("#add-animal").on("click", function(event){
     renderButton();
 })
 
-$("button").on("click", function(){
+
+
+function display(){
     var animal = $(this).attr("data-animal");
-})
-$(window).on("load", function() {
-    renderButton();
-});
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +animal+ "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+    .then(function(response){
+
+        var results = response.data;
+        console.log(response);
+        $("#animal-view").empty();
+        for(var i = 0; i < results.length; i++) {
+            var gifDiv = $("<div>");
+            var rating = results[i].rating;
+            var p = $("<p>").text("Rating: " + rating);
+            var animalImage = $("<img>");
+            animalImage.attr("src", results[i].images.fixed_height_still.url);
+            animalImage.attr("data-state", "still");
+           
+            gifDiv.append(p);
+            gifDiv.append(animalImage);
+            $("#animal-view").append(gifDiv);
+
+        }
+
+    });
+}
+
+$(document).on("click", ".animalClass", display);
+
+
+renderButton();
+
+
+    // var state = $(this).attr("data-state");
+    // for(var i = 0; i < results.length; i++) {
+    // if(state === "still"){
+    //     $(this).attr("scr", results[i].images.fixed_width.url)
+    //     $(this).attr("data-state","animate");
+    // } else{
+    //     $(this).attr("scr",results[i].images.fixed_height_still.url)
+    //     $(this).attr("data-state","still");
+    // }
+    // }
