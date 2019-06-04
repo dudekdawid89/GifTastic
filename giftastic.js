@@ -4,7 +4,7 @@ function renderButton() {
     $("#button-view").empty();
 
     for (var i = 0; i < topics.length; i++) {
-        var newButton = $("<button>");
+        var newButton = $("<button class= 'option btn btn-dark btn-md'>");
         newButton.addClass("animalClass");
         newButton.attr("data-animal", topics[i]);
         newButton.text(topics[i]);
@@ -41,8 +41,10 @@ function display() {
                 var rating = results[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 var animalImage = $("<img>");
-                animalImage.attr("src", results[i].images.fixed_height_still.url);
+                animalImage.attr("src", results[i].images.original_still.url);
                 animalImage.attr("data-state", "still");
+                animalImage.attr("data-animate", results[i].images.original.url);
+                animalImage.attr("data-still", results[i].images.original_still.url);
                 animalImage.addClass("animalgif");
 
                 gifDiv.append(p);
@@ -59,17 +61,19 @@ $(document).on("click", ".animalClass", display);
 
 renderButton();
 
-$(window).on("click", function () {
-    var state = $("img").attr("data-state");
-    for (var i = 0; i < results.length; i++) {
+$(document).on("click",".animalgif" ,function () {
+    var state = $(this).attr("data-state");
+      var animate= $(this).attr("data-animate");
+      var still= $(this).attr("data-still");
+
         if (state === "still") {
-            $(this).attr("src", results[i].images.fixed_width.url)
+            $(this).attr("src", animate)
             $(this).attr("data-state", "animate");
         } else {
-            $(this).attr("src", results[i].images.fixed_height_still.url)
+            $(this).attr("src",  still)
             $(this).attr("data-state", "still");
         }
-    }
+
 
 })
 
