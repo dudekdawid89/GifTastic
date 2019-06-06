@@ -35,3 +35,13 @@ body {
     background-image: url(./fezbot2000-756580-unsplash.jpg); 
     background-size: cover;
   }
+p{
+    margin-top: 10px;
+    color:black;
+    
+}
+.col-sm-3 {
+   
+    font-weight: bold;
+    
+}

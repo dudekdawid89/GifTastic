@@ -1,4 +1,4 @@
-var topics = ["Dingo", "Panther", "Bison", "Cape Buffalo", "Moose", "Gorilla", "Musk Deer", "Tahr", "Koala", "Mouflon", "Sea Otter"]
+var topics = ["Cat", "Panther", "Bison", "Buffalo", "Moose", "Gorilla", "Musk Deer", "Mosquito", "Koala", "Mammal", "Sea Otter"]
 
 function renderButton() {
     $("#button-view").empty();
@@ -37,9 +37,9 @@ function display() {
             console.log(response);
             $("#animal-view").empty();
             for (var i = 0; i < results.length; i++) {
-                var gifDiv = $("<div class='col-sm-6 col-lg-2'>");
+                var gifDiv = $("<div class='col-sm-3 col-lg-3'>");
                 var rating = results[i].rating;
-                var p = $("<p>").text("Rating: " + rating);
+                var p = $("<p class='badge badge-secondary'>").text("Rating: " + rating);
                 var animalImage = $("<img>");
                 animalImage.attr("src", results[i].images.original_still.url);
                 animalImage.attr("data-state", "still");
