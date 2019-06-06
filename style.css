@@ -1,0 +1,37 @@
+.animalClass{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+body{
+    background:silver;
+}
+
+/* #animal-form{
+    float: right;
+} */
+
+.animalgif{
+    width: 180px;
+    height: 180px;
+}
+
+#animal-view{
+    margin-top: 130px;
+}
+.text-center{
+vertical-align: middle;
+}
+.form-inline {
+    margin-top: 40px;
+}
+
+
+.jumbotron{
+    background: rgba(100, 54, 54, 0.5); 
+}
+
+body { 
+    background-image: url(./fezbot2000-756580-unsplash.jpg); 
+    background-size: cover;
+  }
