@@ -3,9 +3,6 @@
     margin-bottom: 10px;
 }
 
-body{
-    background:silver;
-}
 
 /* #animal-form{
     float: right;
@@ -29,11 +26,15 @@ vertical-align: middle;
 
 .jumbotron{
     background: rgba(100, 54, 54, 0.5); 
+    background-attachment: fixed;
 }
 
 body { 
     background-image: url(./fezbot2000-756580-unsplash.jpg); 
     background-size: cover;
+   
+    background-attachment: fixed;
+
   }
 p{
     margin-top: 10px;
